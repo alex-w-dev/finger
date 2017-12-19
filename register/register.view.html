@@ -1,0 +1,9 @@
+
+    <div class="register_page-title border_text">Регистрация</div>
+    <form name="form" ng-submit="vm.register()" role="form">
+        <input type="text"  ng-class="{ 'has-error': form.login.$dirty && form.login.$error.required }" placeholder="логин" name="login" id="login" class="form-control  input_email" ng-model="vm.user.login" required />
+        <input type="password" name="password"  placeholder="пароль" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }" id="password" class="form-control input_login" ng-model="vm.user.password" required />
+        <input type="text" name="email" id="email"  placeholder="email" class="form-control  input_password"   ng-class="{ 'has-error': form.email.$dirty && form.email.$error.required }" ng-model="vm.user.email" required />
+        <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="yellow_button yellow_button-register"></button>
+        <a href="#/login" class="brown_button brown_button-back  registration_page-brown_button-back" ></a>
+    </form>

@@ -1,0 +1,60 @@
+
+
+<div class="home_gold border_text"  ng-click="vm.alert('Это Вам скоро пригодится!')" >{{user.gold}}</div>
+
+<div class="home_user_level border_text"  ng-click="vm.alert('До сдедующего уровня '+(100 - user.exp % 100)+' опыта')" >
+  <div class="home_user_level_exp_bar">
+    <div class="home_user_level_exp_bar_inside" ng-style="{'width':((user.exp % 100))+'%'}"></div>
+  </div>
+  <div class="home_user_level_current_level">Уровень {{ Math.floor(user.exp / 100) +1}}</div>
+  <div class="home_user_level_next_level">{{ Math.floor(user.exp / 100) + 2}}</div>
+</div>
+
+<div class="home_settings attabe_button_hover_rot_right"  ng-click="vm.alert('Ненастроенный раздел настроек')" ></div>
+
+<div class="home_avatar_shield"  ng-click="vm.alert('Что ожидаем мы увидеть кликая по аватару?! ))')" >
+  <div class="home_avatar_shield_avatar"  ng-style="{'background-image': 'url('+user.avatar+')'}"></div>
+  <div class="home_avatar_shield_ramka"></div>
+</div>
+<div class="home_user_name border_text">{{user.username}}</div>
+
+<div class="home_buttons">
+  <a href="#/login" class="home_button home_button_exit attabe_button_hover_rot_left"></a>
+  <a href="#/" ng-click="vm.alert('Возможность изменить внешний вид своей армии появится в скором времени')" class="home_button home_button_skins attabe_button_hover_rot_left"></a>
+  <a href="#/" ng-click="vm.alert('Этот раздел находится в разработке')" class="home_button home_button_teaching attabe_button_hover_rot_left"></a>
+  <div ng-click="vm.goBattle()" class="home_button home_button_arena attabe_button_hover_rot_right"></div>
+</div>
+
+
+<div class="spm_table_div">
+  <h6>Последние битвы</h6>
+  <table class="spm_table">
+    <tr ng-repeat="row in vm.lastBattleTable">
+      <td ng-class="(row.session_id_1 == 'winner')?'winner':'looser'">
+        <div class="userinfo"><div class="img-round"><img ng-src="{{row.avatar_1}}" alt=""></div><div>{{row.username_1}}</div></div>
+      </td>
+      <td  ng-class="(row.session_id_2 == 'winner')?'winner':'looser'">
+        <div class="userinfo"><div class="img-round"><img ng-src="{{row.avatar_2}}" alt=""></div><div>{{row.username_2}}</div></div>
+      </td>
+    </tr>
+  </table>
+</div>
+<div class="spm_table_div" id="spm_table_div">
+  <h6 style="text-align:right;">Рекордсмены</br>по символам в минуту<div ng-click="vm.alert('Здесь отображаются только зарегестрированные пользователи.\r\nРезультаты периодически обновляются, победители получают золото!')"  class="spm_table_div_info_button attabe_button_hover_rot_right">!</div></h6>
+  <table class="spm_table">
+    <tr ng-repeat="row in vm.spmTable">
+      <td>
+        <div class="userinfo"><div class="img-round"><img ng-src="{{row.avatar}}" alt=""></div><div>{{row.username}}</div></div>
+      </td>
+      <td>
+        <div class="userinfo">{{row.spm}} с/м</div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div id="battle_field_postament">
+  <div id="battle_field_postament_sentral_position" style="margin-left: 100px;">
+    <div class="home_battle_field" id="battle_field"></div>
+  </div>
+</div>

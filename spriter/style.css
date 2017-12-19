@@ -1,0 +1,74 @@
+
+.all_json{}
+.all_json div{
+    border-bottom: 1px solid #797979;
+    border-right: 1px solid #797979;
+    border-top: 1px solid #E6E6E6;
+    border-left: 1px solid #E6E6E6;
+    padding: 2px 20px;
+    background-color: rgba(0, 66, 2, 0.09);
+}
+input[type="number"]{
+    width: 50px;
+}
+div.animation_position_single{
+  padding: 0px;
+  border: none;
+  width: 1px;
+  margin-left: 100px;
+  position: relative;
+  display: inline-block;
+  box-shadow: none;
+  background-color: white;
+}
+div.animation_position_single div{
+  padding: 0px;
+  border: none;
+  box-shadow: 0px 0px 1px 1px #5A5A5A;
+}
+div.animation_position_single:before{
+  content: '';
+  position: absolute;
+  height: 173%;
+  background-color: #777;
+  width: 1px;
+  top: -50%;
+  box-shadow: none;
+}
+div.solder{
+  /* float: right; */
+  padding: 0px;
+  border: none;
+}
+div.sprite_ground{
+    /* position: relative; */
+}
+div#sprite_ground{
+    position: fixed;
+    top: 200px;
+    right: 100px;
+    width: 200px;
+    border-bottom: 2px solid green;
+}
+div#sprite_ground .solder{display: block;}
+div#sprite_ground .sprite_postament{
+    position: absolute;
+    width: 1px;
+    /* overflow: hidden; */
+    right: 100px;
+    bottom: 0px;
+}
+div#sprite_ground .back_sprite_postament{
+      -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+div.rule_line{
+  position: fixed;
+  width: 117px;
+  background: repeating-linear-gradient(    to right,    rgba(255, 255, 255, 0),    #545454 1px,    rgba(255, 209, 128, 0) 1px,    rgba(255, 209, 128, 0) 10px  );
+  top: 0px;
+  height: 100%;
+  left: 692px;
+}

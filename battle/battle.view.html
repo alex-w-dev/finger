@@ -1,0 +1,97 @@
+<div ng-switch on="vm.connecting">
+  <div ng-switch-when="false">
+    <div ng-bind="vm.user.username" class="battle_username battle_username_user" ></div>
+    <div style="background-image:url('{{vm.user.avatar}}')" class="battle_avatar battle_avatar_user" ></div>
+    <div ng-bind="vm.bot.username" class="battle_username battle_username_bot" ></div>
+    <div style="background-image:url('{{vm.bot.avatar}}')" class="battle_avatar battle_avatar_bot" ></div>
+<!--     <div ng-bind="vm.user.score" class="battle_userscore battle_score" ></div>
+<div ng-bind="vm.bot.score" class="battle_botscore battle_score" ></div> -->
+
+
+
+    <div class="battle_central_shield">
+      <div>Осталось</div>
+      <div id="battle_word_count_ost" class="border_text" ng-bind="vm.text.length - vm.user.textIndex">34123</div>
+      <div>Буквы</div>
+    </div>
+    <div class="battle_central_shield border_text" id="timeWaiting">
+      <div>Через</div>
+      <div id="waiting_ost" class="border_text">10</div>
+      <div>начнем!</div>
+    </div>
+
+
+    <div class="battle_canvas battle_usercanvas">
+      <div class="battle_canvas_kombo battle_usercanvas_kombo">x0</div>
+      <canvas height='50' width='400' id='user_canvas'>Обновите браузер</canvas>
+    </div>
+    <div class="battle_canvas battle_botcanvas">
+      <canvas height='40' width='400' id='bot_canvas'>Обновите браузер</canvas>
+    </div>
+
+    <div ng-click="vm.surrend()" class="surrender attabe_button_hover_rot_left" ></div>
+
+    <div id="battle_field_postament">
+      <div id="battle_field_postament_sentral_position" style="margin-left: {{ 500  / vm.battleGroundZoom}}px; zoom: {{vm.battleGroundZoom}}; ">
+        <div id="battle_field" style="width:{{vm.battleGroundWidth}}px; margin-left: -{{vm.battleGroundPostamentPosition}}px "></div>
+      </div>
+    </div>
+    <div class="zoom_buttons plus_zoom_button" ng-click="vm.chageZoomBatleField(true)"></div>
+    <div class="zoom_value">{{vm.battleGroundZoom}}</div>
+    <div class="zoom_buttons minus_zoom_button" ng-click="vm.chageZoomBatleField(false)"></div>
+
+    <div id="footer_guarantor">&nbsp;</div>
+  </div>
+  <div ng-switch-when="true">
+    <div ng-click="vm.goHome()" class="connecting_page-brown_button-back brown_button-back brown_button"></div>
+    <div class="waiting_shield">
+      <div class="waiting_shield_title">ожидание игрока #2</div>
+      <div class="waiting_shield_time border_text">{{vm.waitingApponentCount}}</div>
+    </div>
+    <div ng-click="vm.goIiNow()"  class="yellow_button-gorobot yellow_button" ></div>
+    <div ng-click="vm.addTimeWaiting()" class="brown_button-addtime brown_button"></div>
+  </div>
+</div>
+<div id="time_wait"></div>
+
+
+<div ng-show="vm.endBattleWindow">
+  <div class="popup">
+    <div class="popup_wall"></div>
+    <div class="end_battle_div">
+      <table class="end_battle_table">
+        <tr>
+          <td>Игроки</td>
+          <td>{{vm.endBattle.user.name}}</td>
+          <td>{{vm.endBattle.bot.name}}</td>
+        </tr>
+        <tr>
+          <td>Очки</td>
+          <td>{{vm.endBattle.user.points}}</td>
+          <td>{{vm.endBattle.bot.points}}</td>
+        </tr>
+        <tr>
+          <td>Cимв./мин.</td>
+          <td>{{vm.endBattle.user.spm_clear}}</td>
+          <td>{{vm.endBattle.bot.spm_clear}}</td>
+        </tr>
+        <tr>
+          <td>Точность</td>
+          <td>{{vm.endBattle.user.procent}}%</td>
+          <td>{{vm.endBattle.bot.procent}}%</td>
+        </tr>
+      </table>
+      <div class="end_battle_div_gold">+{{vm.endBattle.user.gold}}</div>
+    </div>
+    <div ng-switch on="vm.endBattleWindow" class="end_game_shield_switcher">
+      <div ng-switch-when="winner" class="end_game_shield end_game_shield-winner">
+        <div class="end_game_shield_cubok end_game_shield_cubok_winner"></div>
+      </div>
+      <div ng-switch-when="looser" class="end_game_shield end_game_shield-looser">
+        <div class="end_game_shield_cubok end_game_shield_cubok_looser"></div>
+      </div>
+    </div>
+    <div ng-click="vm.goHome()" class="end_battle-brown_button-back connecting_page-brown_button-back brown_button-back brown_button"></div>
+    <div ng-click="vm.reNewGame()" class="end_battle-newgame yellow_button-newgame yellow_button"></div>
+  </div>
+</div>
