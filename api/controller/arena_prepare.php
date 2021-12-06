@@ -35,7 +35,21 @@
           }
         }
 
-        $db->insert('battle', array('session_id_1'=>$session_id, 'skin_1'=>$result_skin['json'], 'username_1'=>$_SESSION['user']['username'], 'avatar_1'=>$_SESSION['user']['avatar'], 'text'=>$result_text['text'], 'antihack_symbol'=>$antihack_symbol));
+        $db->insert('battle', array(
+          'session_id_1'=>$session_id,
+          'skin_1'=>$result_skin['json'],
+          'username_1'=>$_SESSION['user']['username'],
+          'avatar_1'=>$_SESSION['user']['avatar'],
+          'log_1'=>'',
+          'session_id_2'=>'',
+          'skin_2'=>'',
+          'username_2'=>'',
+          'avatar_2'=>'',
+          'log_2'=>'',
+          'start'=>null,
+          'text'=>$result_text['text'],
+          'antihack_symbol'=>$antihack_symbol,
+        ));
         //$_SESSION['battle_number'] = 1;
         echo json_encode(array('result'=>'wait'));
       }
